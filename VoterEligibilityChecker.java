@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class VoterEligibilityChecker {
 
     public static boolean isEligible(int age) {
@@ -7,17 +5,17 @@ public class VoterEligibilityChecker {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        if (args.length < 1) {
+            System.out.println("Please provide your age as a command-line argument.");
+            return;
+        }
 
-        System.out.print("Enter your age: ");
-        int age = scanner.nextInt();
+        int age = Integer.parseInt(args[0]);
 
         if (isEligible(age)) {
             System.out.println("You are eligible to vote.");
         } else {
             System.out.println("You are not eligible to vote.");
         }
-
-        scanner.close();
     }
 }
